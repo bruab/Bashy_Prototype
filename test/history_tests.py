@@ -8,6 +8,10 @@ class TestHistory(unittest.TestCase):
     def setUp(self):
         self.history = History()
 
+    def test_get_last(self):
+        self.history.commands = ["pwd", "foo"]
+        self.assertEquals("foo", self.history.get_last())
+
 
 ##########################
 def suite():

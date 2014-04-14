@@ -4,5 +4,10 @@
 
 class History:
 
-    def __init__(self):
-        pass
+    def __init__(self, commands=None):
+        if not commands:
+            commands = []
+        self.commands = commands
+
+    def get_last(self):
+        return self.commands[-1]
