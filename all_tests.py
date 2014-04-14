@@ -2,13 +2,13 @@
 
 # import all the lovely files
 import unittest
-import test.ui_controller_tests
+import test.console_tests
 import test.filesystem_tests
 import test.mission_tests
 import test.mission_manager_tests
 
 # get suites from test modules
-suite1 = test.ui_controller_tests.suite()
+suite1 = test.console_tests.suite()
 suite2 = test.filesystem_tests.suite()
 suite3 = test.mission_tests.suite()
 suite4 = test.mission_manager_tests.suite()
