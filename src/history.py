@@ -8,8 +8,9 @@ def format_list(items):
         return items[0] + "\n"
     else:
         result = ""
-        for item in items:
+        for item in items[:-1]:
             result += item + "\n"
+        result += items[-1]
         return result
 
 class History:

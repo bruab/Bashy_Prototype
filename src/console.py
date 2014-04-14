@@ -42,7 +42,7 @@ class BashyCmd(cmd.Cmd):
         self.filesystem.cd(line)
 
     def do_history(self, line):
-        self.history.get_last_n(20)
+        print(self.history.get_last_n(20))
 
 ########################################################################
 
