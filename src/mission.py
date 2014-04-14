@@ -9,6 +9,9 @@ class Mission:
             goals = {}
         self.goals = goals
 
+    def __str__(self):
+        return(str(self.goals))
+
     def complete(self, history, filesystem):
         for command in self.goals["history"]:
             method = getattr(history, command[0])

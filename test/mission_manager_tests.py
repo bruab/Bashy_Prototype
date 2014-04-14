@@ -11,11 +11,11 @@ class TestMissionManager(unittest.TestCase):
     def test_constructor(self):
         self.assertTrue(self.mgr.missions)
 
-    def test_next(self):
+    def test_next_mission(self):
         # TODO for now mission manager is hardcoded to contain two tests ...
-        self.assertTrue(self.mgr.next())
-        self.assertTrue(self.mgr.next())
-        self.assertFalse(self.mgr.next())
+        self.assertTrue(self.mgr.next_mission())
+        self.assertTrue(self.mgr.next_mission())
+        self.assertFalse(self.mgr.next_mission())
 
 
 ##########################

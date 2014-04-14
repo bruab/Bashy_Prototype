@@ -14,7 +14,7 @@ class MissionManager:
         mission2.goals = mission2dict
         self.missions = [mission1, mission2]
 
-    def next(self):
+    def next_mission(self):
         if self.missions:
             return self.missions.pop(0)
         else:
