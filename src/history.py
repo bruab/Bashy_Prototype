@@ -10,4 +10,8 @@ class History:
         self.commands = commands
 
     def get_last(self):
-        return self.commands[-1]
+        if self.commands:
+            return self.commands[-1]
+
+    def add_line(self, line):
+        self.commands.append(line)
