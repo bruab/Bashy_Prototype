@@ -38,6 +38,12 @@ class BashyCmd(cmd.Cmd):
     def do_pwd(self, line):
         print(self.filesystem.pwd())
 
+    def do_cd(self, line):
+        self.filesystem.cd(line)
+
+    def do_history(self, line):
+        self.history.get_last_n(20)
+
 ########################################################################
 
 if __name__ == '__main__':

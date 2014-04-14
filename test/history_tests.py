@@ -17,6 +17,11 @@ class TestHistory(unittest.TestCase):
         actual = self.history.get_last()
         self.assertFalse(actual)
 
+    def test_get_last_n(self):
+        self.history.commands = ["foo1", "foo2", "foo3"]
+        expected = "foo1\nfoo2\nfoo3\n"
+        self.assertEquals(self.history.get_last_n(3), expected)
+
     def test_add_line(self):
         self.assertEquals(0, len(self.history.commands))
         self.history.add_line("foo line")

@@ -11,7 +11,7 @@ class MissionManager:
 
     def get_hardcoded_missions(self):
         mission1 = Mission()
-        mission1dict = {"history": [], "filesystem": [["pwd", "/home/brian"]]}
+        mission1dict = {"history": [], "filesystem": [["pwd", "/foo"]]}
         mission1.goals = mission1dict
         mission2 = Mission()
         mission2dict = {"history": [["get_last", "pwd"]], "filesystem": []}
