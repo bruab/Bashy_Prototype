@@ -17,8 +17,9 @@ class BashyCmd(cmd.Cmd):
         self.current_mission = self.mission_manager.next_mission()
         self.prompt = "Bashy> "
 
-    def precmd(self):
+    def precmd(self, line):
         self.history.add_line(line)
+        return cmd.Cmd.precmd(self, line)
 
     def postcmd(self, stop, line):
         if self.current_mission.complete(self.history, self.filesystem):
@@ -33,6 +34,9 @@ class BashyCmd(cmd.Cmd):
 
     def do_info(self, line):
         print(self.current_mission)
+
+    def do_pwd(self, line):
+        print(self.filesystem.pwd())
 
 ########################################################################
 
