@@ -6,6 +6,10 @@ from src.mission import Mission
 class MissionManager:
 
     def __init__(self):
+        # TODO these missions are hard coded; should read from file or something?
+        self.get_hardcoded_missions()
+
+    def get_hardcoded_missions(self):
         mission1 = Mission()
         mission1dict = {"history": [], "filesystem": [["pwd", "/home/brian"]]}
         mission1.goals = mission1dict

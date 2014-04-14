@@ -5,7 +5,10 @@
 class FileSystem:
 
     def __init__(self):
-        pass
+        self.current_directory = "/home/brian"
 
     def pwd(self):
-        return "/home/brian"
+        return self.current_directory
+
+    def cd(self, path):
+        self.current_directory = path

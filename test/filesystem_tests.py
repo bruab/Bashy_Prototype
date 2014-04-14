@@ -6,10 +6,17 @@ from src.filesystem import FileSystem
 class TestFileSystem(unittest.TestCase):
 
     def setUp(self):
-        self.ctrlr = FileSystem()
+        self.filesystem = FileSystem()
 
     def test_pwd(self):
-        return "/home/brian"
+        self.assertEquals("/home/brian", self.filesystem.pwd())
+
+    def test_cd(self):
+        self.assertEquals("/home/brian", self.filesystem.current_directory)
+        self.filesystem.cd("/home")
+        self.assertEquals("/home", self.filesystem.current_directory)
+
+        
 
 
 ##########################
