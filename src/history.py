@@ -2,10 +2,7 @@
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 
-class FileSystem:
+class History:
 
     def __init__(self):
         pass
-
-    def pwd(self):
-        return "/home/brian"

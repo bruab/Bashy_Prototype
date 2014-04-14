@@ -8,6 +8,9 @@ class TestFileSystem(unittest.TestCase):
     def setUp(self):
         self.ctrlr = FileSystem()
 
+    def test_pwd(self):
+        return "/home/brian"
+
 
 ##########################
 def suite():

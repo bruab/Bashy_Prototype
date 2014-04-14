@@ -10,6 +10,7 @@ class TestUIController(unittest.TestCase):
 
     def test_constructor(self):
         self.assertTrue(self.ctrlr.filesystem)
+        self.assertTrue(self.ctrlr.history)
 
 
 ##########################
