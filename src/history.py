@@ -20,11 +20,13 @@ class History:
             commands = []
         self.commands = commands
 
-    def get_last(self):
-        if self.commands:
-            return self.commands[-1]
+    def get_last_n_commands(self, number):
+        if len(self.commands) < number:
+            return self.commands
+        else:
+            return self.commands[-number:]
 
-    def get_last_n(self, number):
+    def get_last_n_formatted(self, number):
         if len(self.commands) < number:
             return format_list(self.commands)
         else:
