@@ -16,6 +16,13 @@ class TestFileSystem(unittest.TestCase):
         self.filesystem.cd("/home")
         self.assertEquals("/home", self.filesystem.current_directory)
 
+    def test_exists(self):
+        test_path = "/home/brian"
+        self.assertTrue(self.filesystem.exists(test_path))
+
+    def test_exists_file(self):
+        test_path = "/home/brian/sample.txt"
+        self.assertTrue(self.filesystem.exists(test_path))
         
 
 
