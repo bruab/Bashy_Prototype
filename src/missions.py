@@ -21,7 +21,7 @@ class Mission:
 class Mission1(Mission):
     def __init__(self):
         self.title = "Mission 1"
-        self.intro = "Welcome to Bashyland!"
+        self.intro = "First let's learn about this new place."
         self.description = "Find out where you are with the 'pwd' command."
         self.little_hint = "Use the command in the description ..."
         self.big_hint = "Type 'pwd' and press enter."

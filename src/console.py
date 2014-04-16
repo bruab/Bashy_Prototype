@@ -3,6 +3,7 @@
 
 from src.mission_manager import MissionManager
 from src.bashy_controller import BashyController
+from art.ascii_art import *
 import cmd
 
 
@@ -13,6 +14,7 @@ class BashyCmd(cmd.Cmd):
         self.controller = BashyController()
         self.mission_manager = MissionManager()
         self.prompt = "Bashy> "
+        print(bashy_logo)
         self.mission_manager.startup()
 
     def precmd(self, line):
@@ -21,7 +23,7 @@ class BashyCmd(cmd.Cmd):
 
     def postcmd(self, stop, line):
         if self.mission_manager.update(self.controller):
-            print("You win.")
+            print("\tYou win.")
             return True
         else:
             return stop

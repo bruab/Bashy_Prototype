@@ -19,19 +19,20 @@ class MissionManager:
         return str(self.current_mission)
 
     def startup(self):
-        print("\n" + self.current_mission.title + ":")
-        print(self.current_mission.intro)
-        print(self.current_mission.description + "\n")
+        print("\tWelcome to Bashyland!\n")
+        print("\n\t" + self.current_mission.title + ":")
+        print("\t" + self.current_mission.intro)
+        print("\t" + self.current_mission.description + "\n")
 
     def update(self, controller):
         if self.current_mission.complete(controller):
-            print("\n" + self.current_mission.completion_message)
+            print("\n\t" + self.current_mission.completion_message)
             self.missions.pop(0)
             if not self.missions:
                 return True
             else:
                 self.current_mission = self.missions[0]
-                print("\n" + self.current_mission.title + ":")
-                print(self.current_mission.intro)
-                print(self.current_mission.description + "\n")
+                print("\n\t" + self.current_mission.title + ":")
+                print("\t" + self.current_mission.intro)
+                print("\t" + self.current_mission.description + "\n")
         return False
