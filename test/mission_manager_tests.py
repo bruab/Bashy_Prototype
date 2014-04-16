@@ -28,6 +28,7 @@ class TestMissionManager(unittest.TestCase):
         mock_ctrlr = Mock()
         mock_mission = Mock()
         mock_mission.complete.return_value = True
+        mock_mission.completion_message = ""
         self.mgr.missions = [mock_mission]
         self.mgr.current_mission = mock_mission
         self.assertTrue(self.mgr.update(mock_ctrlr))

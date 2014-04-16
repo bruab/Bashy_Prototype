@@ -6,4 +6,4 @@ from src.console import BashyCmd
 ########################################################################
 
 if __name__ == '__main__':
-    BashyCmd().cmdloop("Welcome to Bashy!")
+    BashyCmd().cmdloop()

@@ -13,6 +13,7 @@ class BashyCmd(cmd.Cmd):
         self.controller = BashyController()
         self.mission_manager = MissionManager()
         self.prompt = "Bashy> "
+        self.mission_manager.startup()
 
     def precmd(self, line):
         self.controller.add_history_line(line)
