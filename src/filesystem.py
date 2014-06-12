@@ -46,7 +46,7 @@ class FileSystem:
         directories = path.split("/")
         parent = self.root
         for subdirectory in directories[1:]:
-            if not subdirectory in parent.data.keys():
+            if not subdirectory in parent.data:
                 return False
             parent = parent.data[subdirectory]
         return True
