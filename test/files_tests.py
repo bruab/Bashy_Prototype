@@ -14,6 +14,8 @@ class TestFile(unittest.TestCase):
         self.assertEqual("/home", self.childfile.get_absolute_path())
         self.assertEqual("/home/brian", self.grandchildfile.get_absolute_path())
 
+    def test_get_absolute_path_root(self):
+        self.assertEqual("/", self.parentfile.get_absolute_path())
 
 
 ##########################

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
+import sys
 from src.files import File
 
 class FileSystem:
@@ -13,7 +14,13 @@ class FileSystem:
         return self.current_directory.get_absolute_path()
 
     def cd(self, path):
-        if path.startswith("/"):
+        if path == "..":
+            self.current_directory = self.current_directory.parent
+        elif path == ".":
+            return
+        elif path == "/":
+            self.current_directory = self.root
+        elif path.startswith("/"):
             # Absolute path
             dirs = path.strip().split("/")[1:]
             current_dir = self.root
@@ -24,8 +31,7 @@ class FileSystem:
                 else:
                     current_dir = current_dir.data[dirname]
             self.current_directory = current_dir
-        elif path == "..":
-            self.current_directory = self.current_directory.parent
+        # TODO relative paths
 
     def initialize_filesystem(self):
         # TODO naming scheme for File tuples

@@ -15,6 +15,8 @@ class File:
         self.data = data
 
     def get_absolute_path(self):
+        if not self.parent:
+            return "/"
         at_root = False
         current_dir = self
         dirs = [self.name]
