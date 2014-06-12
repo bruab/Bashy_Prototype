@@ -13,9 +13,10 @@ class TestFileSystem(unittest.TestCase):
         pass
 
     def test_cd(self):
-        #self.assertEquals("/home/brian", self.filesystem.current_directory)
+        self.assertEquals("brian", self.filesystem.current_directory.name)
+        self.assertEquals("/home/brian", self.filesystem.current_directory.get_absolute_path())
         self.filesystem.cd("/home")
-        #self.assertEquals("/home", self.filesystem.current_directory)
+        self.assertEquals("home", self.filesystem.current_directory.name)
 
     def test_cd_to_parent(self):
         #self.assertEquals("/home/brian", self.filesystem.current_directory)

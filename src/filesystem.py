@@ -13,8 +13,19 @@ class FileSystem:
         return self.current_directory.get_absolute_path()
 
     def cd(self, path):
-        # TODO actually use self.files! This is just a string.
-        self.current_directory = path
+        if path.startswith("/"):
+            # Absolute path
+            dirs = path.strip().split("/")[1:]
+            current_dir = self.root
+            for dirname in dirs:
+                if dirname not in current_dir.data:
+                    sys.stderr.write("Invalid path: " + path)
+                    return
+                else:
+                    current_dir = current_dir.data[dirname]
+            self.current_directory = current_dir
+        elif path == "..":
+            self.current_directory = self.current_directory.parent
 
     def initialize_filesystem(self):
         # TODO naming scheme for File tuples
