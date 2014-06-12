@@ -15,7 +15,8 @@ class FileSystem:
 
     def cd(self, path):
         if path == "..":
-            self.current_directory = self.current_directory.parent
+            if self.current_directory.parent:
+                self.current_directory = self.current_directory.parent
         elif path == ".":
             return
         elif path == "/":
@@ -26,15 +27,29 @@ class FileSystem:
             current_dir = self.root
             for dirname in dirs:
                 if dirname not in current_dir.data:
-                    sys.stderr.write("Invalid path: " + path)
+                    sys.stderr.write("Invalid path: " + path + "\n")
                     return
                 else:
                     current_dir = current_dir.data[dirname]
             self.current_directory = current_dir
-        # TODO relative paths
+        else:
+            # Relative path
+            dirs = path.strip().split("/")
+            current_dir = self.current_directory
+            for dirname in dirs:
+                if dirname not in current_dir.data:
+                    sys.stderr.write("Invalid path: " + path + "\n")
+                    return
+                else:
+                    current_dir = current_dir.data[dirname]
+            self.current_directory = current_dir
+
+
 
     def initialize_filesystem(self):
         # TODO naming scheme for File tuples
+        # TODO tests depend on this particular filesystem, and so does game.
+        # all this should live in a text file or something ...
         Bin = File('bin', None, 'root', 'root', '755', True, {})
         foo = File('foo', None, 'brian', 'users', '755', True, {})
         sample_text = File('sample.txt', None, 'brian', 'users', '755', False, "This is some sample text")

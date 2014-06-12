@@ -29,6 +29,11 @@ class TestFileSystem(unittest.TestCase):
         self.filesystem.cd("/")
         self.assertEquals("/", self.filesystem.current_directory.get_absolute_path())
 
+    def test_cd_relative_path(self):
+        self.assertEquals("/home/brian", self.filesystem.current_directory.get_absolute_path())
+        self.filesystem.cd("foo")
+        self.assertEquals("/home/brian/foo", self.filesystem.current_directory.get_absolute_path())
+
     def test_exists(self):
         test_path = "/home/brian"
         self.assertTrue(self.filesystem.exists(test_path))
