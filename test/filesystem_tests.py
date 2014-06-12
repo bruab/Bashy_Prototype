@@ -9,7 +9,7 @@ class TestFileSystem(unittest.TestCase):
         self.filesystem = FileSystem()
 
     def test_pwd(self):
-        #self.assertEquals("/home/brian", self.filesystem.pwd())
+        self.assertEquals("/home/brian", self.filesystem.pwd())
         pass
 
     def test_cd(self):

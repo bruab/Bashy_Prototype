@@ -25,6 +25,7 @@ class FileSystem:
         Home = File('home', None, 'root', 'root', '755', True, {'brian': brian})
         self.root = File('/', None, 'root', 'root', '755', True, {'home': Home, 'bin': Bin})
         Home.parent = self.root
+        brian.parent = Home
         Bin.parent = self.root
         foo.parent = brian
         sample_text.parent = brian
