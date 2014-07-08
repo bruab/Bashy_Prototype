@@ -15,7 +15,8 @@ class MissionManager:
     def get_hardcoded_missions(self):
         mission1 = Mission1(self.controller)
         mission2 = Mission2(self.controller)
-        self.missions = [mission1, mission2]
+        mission3 = Mission3(self.controller)
+        self.missions = [mission1, mission2, mission3]
 
     def info(self):
         return str(self.current_mission)

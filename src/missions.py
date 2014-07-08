@@ -52,3 +52,20 @@ class Mission2(Mission):
         else:
             return False
 
+class Mission3(Mission):
+    def __init__(self, controller):
+        Mission.__init__(self, controller)
+        self.title = "Mission 3"
+        self.intro = "This 'foo' directory is boring. Let's go back."
+        self.description = "Navigate back to /home/" + self.controller.username + "/foo" +\
+                           "by using two periods ('..') and the 'cd' command."
+        self.little_hint = "Use the command 'cd' plus '..' to to the parent directory."
+        self.big_hint = "Type 'cd ..'"
+
+    def complete(self):
+        last_command = self.controller.get_last_n_commands(1)[0]
+        if last_command == "cd ..":
+            return True
+        else:
+            return False
+
