@@ -9,7 +9,7 @@ class BashyController():
 
     def __init__(self):
         self.history = History()
-        self.filesystem = FileSystem()
+        self.filesystem = FileSystem("brian")
 
     def pwd(self):
         return self.filesystem.pwd()

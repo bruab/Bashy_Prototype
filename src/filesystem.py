@@ -7,8 +7,8 @@ from src.files import File
 class FileSystem:
 
 
-    def __init__(self):
-        self.initialize_filesystem()
+    def __init__(self, name):
+        self.initialize_filesystem(name)
 
     def pwd(self):
         return self.current_directory.get_absolute_path()
@@ -46,22 +46,22 @@ class FileSystem:
 
 
 
-    def initialize_filesystem(self):
+    def initialize_filesystem(self, name):
         # TODO naming scheme for File tuples
         # TODO tests depend on this particular filesystem, and so does game.
         # all this should live in a text file or something ...
         Bin = File('bin', None, 'root', 'root', '755', True, {})
-        foo = File('foo', None, 'brian', 'users', '755', True, {})
-        sample_text = File('sample.txt', None, 'brian', 'users', '755', False, "This is some sample text")
-        brian = File('brian', None, 'brian', 'users', '755', True, {'foo': foo, 'sample.txt': sample_text})
-        Home = File('home', None, 'root', 'root', '755', True, {'brian': brian})
+        foo = File('foo', None, name, 'users', '755', True, {})
+        sample_text = File('sample.txt', None, name, 'users', '755', False, "This is some sample text")
+        user_home = File(name, None, name, 'users', '755', True, {'foo': foo, 'sample.txt': sample_text})
+        Home = File('home', None, 'root', 'root', '755', True, {name: user_home})
         self.root = File('/', None, 'root', 'root', '755', True, {'home': Home, 'bin': Bin})
         Home.parent = self.root
-        brian.parent = Home
+        user_home.parent = Home
         Bin.parent = self.root
-        foo.parent = brian
-        sample_text.parent = brian
-        self.current_directory = brian
+        foo.parent = user_home
+        sample_text.parent = user_home
+        self.current_directory = user_home 
 
     def exists(self, path):
         directories = path.split("/")
