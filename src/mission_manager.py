@@ -16,7 +16,8 @@ class MissionManager:
         mission1 = Mission1(self.controller)
         mission2 = Mission2(self.controller)
         mission3 = Mission3(self.controller)
-        self.missions = [mission1, mission2, mission3]
+        mission4 = Mission4(self.controller)
+        self.missions = [mission1, mission2, mission3, mission4]
 
     def info(self):
         return str(self.current_mission)
