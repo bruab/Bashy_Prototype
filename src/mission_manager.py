@@ -5,14 +5,16 @@ from src.missions import *
 
 class MissionManager:
 
-    def __init__(self):
+    def __init__(self, controller):
         # TODO these missions are hard coded; should read from file or something?
+        self.controller = controller
         self.get_hardcoded_missions()
         self.current_mission = self.missions[0]
+        
 
     def get_hardcoded_missions(self):
-        mission1 = Mission1()
-        mission2 = Mission2()
+        mission1 = Mission1(self.controller)
+        mission2 = Mission2(self.controller)
         self.missions = [mission1, mission2]
 
     def info(self):
@@ -24,8 +26,8 @@ class MissionManager:
         print("\t" + self.current_mission.intro)
         print("\t" + self.current_mission.description + "\n")
 
-    def update(self, controller):
-        if self.current_mission.complete(controller):
+    def update(self):
+        if self.current_mission.complete():
             print("\n\t" + self.current_mission.completion_message)
             self.missions.pop(0)
             if not self.missions:

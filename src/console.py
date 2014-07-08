@@ -12,7 +12,7 @@ class BashyCmd(cmd.Cmd):
     def __init__(self):
         cmd.Cmd.__init__(self)
         self.controller = BashyController()
-        self.mission_manager = MissionManager()
+        self.mission_manager = MissionManager(self.controller)
         self.prompt = "Bashy> "
         print(bashy_logo)
         self.mission_manager.startup()
@@ -22,7 +22,7 @@ class BashyCmd(cmd.Cmd):
         return cmd.Cmd.precmd(self, line)
 
     def postcmd(self, stop, line):
-        if self.mission_manager.update(self.controller):
+        if self.mission_manager.update():
             print("\tYou win.")
             return True
         else:

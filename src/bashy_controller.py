@@ -9,7 +9,8 @@ class BashyController():
 
     def __init__(self):
         self.history = History()
-        self.filesystem = FileSystem("brian")
+        self.username = get_username()
+        self.filesystem = FileSystem(self.username)
 
     def pwd(self):
         return self.filesystem.pwd()
@@ -22,3 +23,11 @@ class BashyController():
 
     def add_history_line(self, line):
         self.history.add_line(line)
+
+def get_username():
+    username = "random_user"
+    newname = input("\n\tPlease type your name and press enter: ").strip()
+    if newname:
+        username = newname
+    return username
+
