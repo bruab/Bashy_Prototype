@@ -27,6 +27,8 @@ class MissionManager:
 
     def startup(self):
         print("\tWelcome to Bashyland!\n")
+        print("\tType 'info' to see the current mission.\n")
+        print("\tType 'hint' if you get stuck.\n")
         print("\n\t" + self.current_mission.title + ":")
         print("\t" + self.current_mission.intro)
         print("\t" + self.current_mission.description + "\n")
