@@ -43,3 +43,6 @@ class BashyCmd(cmd.Cmd):
     def do_history(self, line):
         print(self.controller.get_last_n_commands(20))
 
+    def do_hint(self, line):
+        print(self.mission_manager.get_hint())
+

@@ -41,7 +41,7 @@ class Mission2(Mission):
         Mission.__init__(self, controller)
         self.title = "Mission 2"
         self.intro = "Now it's time to move around a little bit."
-        self.description = "Navigate to /home/" + self.controller.username + "/foo"
+        self.description = "Navigate to /home/" + self.controller.username + "/foo using the 'cd' command."
         self.little_hint = "Use the command 'cd' plus the directory you want to go to."
         self.big_hint = "Type 'cd /home/brian/foo'"
         self.completion_message = "Very good! Now you know how to move around."
@@ -59,7 +59,7 @@ class Mission3(Mission):
         self.intro = "This 'foo' directory is boring. Let's go back."
         self.description = "Navigate back to /home/" + self.controller.username + "/foo " +\
                            "by using two periods ('..') and the 'cd' command."
-        self.little_hint = "Use the command 'cd' plus '..' to to the parent directory."
+        self.little_hint = "Use the command 'cd' plus '..' to go to the parent directory."
         self.big_hint = "Type 'cd ..'"
         self.home = "/home/" + self.controller.username
 

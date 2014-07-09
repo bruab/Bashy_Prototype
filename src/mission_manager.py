@@ -22,6 +22,9 @@ class MissionManager:
     def info(self):
         return str(self.current_mission)
 
+    def get_hint(self):
+        return self.current_mission.little_hint
+
     def startup(self):
         print("\tWelcome to Bashyland!\n")
         print("\n\t" + self.current_mission.title + ":")
